@@ -1,0 +1,139 @@
+<!-- templates/accounts/signin.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In</title>
+  <style>
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #f5f6fa;
+}
+
+.auth-container {
+  display: flex;
+  max-width: 1000px;
+  margin: 40px auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.auth-left {
+  flex: 1;
+  background: #ffffff;
+  padding: 40px;
+  border-right: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #2b2b2b;
+}
+
+.auth-right {
+  flex: 1;
+  background: #f1f8fd;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid #e5e5e5;
+}
+
+.auth-left h2, .auth-right h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #2b475c;
+}
+
+.subtext {
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: #6c7a89;
+}
+
+.input-row {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #6a88a2;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.auth-btn:hover {
+  background-color: #57748d;
+}
+
+.alt-option {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.alt-option a {
+  color: #387ca3;
+  text-decoration: none;
+}
+
+.alt-option a:hover {
+  text-decoration: underline;
+}
+
+.contact-info {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #555;
+}
+
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-left">
+      <h2>Welcome Back</h2>
+      <p>Log in to your account and continue supporting our cause.</p>
+      <div class="contact-info">
+        <p><strong>Need help?</strong></p>
+        <p>Email: support@charity.org</p>
+        <p>Call: 120-240-9600</p>
+      </div>
+    </div>
+    <div class="auth-right">
+      <h2>Sign In</h2>
+      <p class="subtext">Enter your credentials to access your account.</p>
+      <form method="post">
+        {% csrf_token %}
+        <div class="input-row">
+          <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="input-row">
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="auth-btn">Login</button>
+      </form>
+      <p class="alt-option">Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+    </div>
+  </div>
+</body>
+</html>
