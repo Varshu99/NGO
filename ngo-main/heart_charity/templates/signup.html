@@ -1,5 +1,10 @@
-<!-- templates/accounts/signup.html -->
+
+{% extends 'base.html' %} 
+
 {% load static %}
+{% block content %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,7 +113,14 @@ input[type="password"] {
 
   </style></head>
 <body>
+  {% if errmsg %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> {{errmsg}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
   <div class="auth-container">
+  
     <div class="auth-left">
       <h2>Join Our Community</h2>
       <p>Create your account and start making a difference today.</p>
@@ -130,7 +142,10 @@ input[type="password"] {
           <input type="email" name="email" placeholder="Email" required>
         </div>
         <div class="input-row">
-          <input type="password" name="password" placeholder="Password" required>
+          <input type="password" name="password1" placeholder="Password" required>
+        </div>
+        <div class="input-row">
+          <input type="password" name="password2" placeholder="Confirm Password" required>
         </div>
         <button type="submit" class="auth-btn">Create Account</button>
       </form>
@@ -139,3 +154,5 @@ input[type="password"] {
   </div>
 </body>
 </html>
+
+{% endblock %}

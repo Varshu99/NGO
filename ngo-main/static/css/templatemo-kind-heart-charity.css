@@ -559,7 +559,7 @@ strong {
   HERO & HERO SLIDE         
 -----------------------------------------*/
 .hero-section-full-height {
-  height: 680px;
+  height: 680px; 
   min-height: 680px;
   position: relative;
 }

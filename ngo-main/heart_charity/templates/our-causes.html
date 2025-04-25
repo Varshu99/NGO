@@ -1,0 +1,51 @@
+
+{% extends 'base.html' %} 
+
+{% load static %}
+{% block content %}
+
+<section class="section-padding" id="section_3">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-12 text-center mb-4">
+                <h2>Our Causes</h2>
+            </div>
+
+            {% for cause in causes %}
+            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                <div class="custom-block-wrap">
+                    <img src="{{cause.img.url}}" class="custom-block-image img-fluid" alt="">
+
+                    <div class="custom-block">
+                        <div class="custom-block-body">
+                            <h5 class="mb-3">{{cause.name}}</h5>
+
+                            <p>{{cause.detail}}</p>
+
+                            <div class="d-flex align-items-center my-2">
+                                <p class="mb-0">
+                                    <strong>Raised:</strong>
+                                    ₹ {{cause.raised}}
+                                </p>
+
+                                <p class="ms-auto mb-0">
+                                    <strong>Goal:</strong>
+                                    ₹ {{cause.goal}}
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="/donate/{{cause.id}}" class="custom-btn btn">Donate now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
